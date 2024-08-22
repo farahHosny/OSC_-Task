@@ -1,7 +1,6 @@
 mkdir project-files
 cd project-files
 mkdir reports logs data
-mkdir reports logs data
 cd reports
 touch report1.md report2.md
 nano report1.md
@@ -14,14 +13,14 @@ cd data
 touch data.csv info.txt
 nano data.csv
 cd ..
-tar -cf logs_backup.tar logs
+tar -cf logs_backup.tar logs/system.log logs/error.log logs/file1.pdf logs/file2.pdf
 cd logs
 tar -xvf logs_backup.tar
 cd ..
 find ~ -name "*.md"
 find . -name "*.log"
 find . -name "file1.pdf"
-$ find . -iname "*.pdf"
+find . -iname "*.pdf"
 find ~/project-files/logs  -type f
 ln -s data.csv link_data.csv
 echo farah >link_data.csv
@@ -35,6 +34,7 @@ wc -w < report1.md
 cd ..
 cd logs
 wc -c <system.log >> summary.txt
+find . -type f -o -type d | wc -l >> summary.txt
 cat summary.txt
 
 
